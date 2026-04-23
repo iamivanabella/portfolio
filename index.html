@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Template | Full Stack Developer</title>
+    <meta
+      name="description"
+      content="Minimalist responsive portfolio template for a full stack developer/software engineer."
+    />
+    <style>
+      :root {
+        --bg: #0f1115;
+        --surface: #171a21;
+        --surface-2: #1f2430;
+        --text: #f2f5f9;
+        --muted: #adb6c7;
+        --accent: #5eead4;
+        --border: #2a3040;
+        --max: 1040px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top, #161a23 0%, var(--bg) 45%);
+        color: var(--text);
+        font-family: Inter, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(100% - 2rem, var(--max));
+        margin-inline: auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(15, 17, 21, 0.75);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.8rem 0;
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-toggle {
+        display: none;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+        padding: 0.45rem 0.7rem;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        color: var(--muted);
+        padding: 0.3rem 0.5rem;
+        border-radius: 6px;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible,
+      .nav-links a.active {
+        color: var(--text);
+        background: var(--surface);
+        outline: none;
+      }
+
+      main {
+        padding: 2rem 0 4rem;
+      }
+
+      section {
+        margin-top: 1.35rem;
+        background: linear-gradient(180deg, var(--surface), var(--surface-2));
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.2rem;
+        scroll-margin-top: 6rem;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 2vw + 1rem, 2.8rem);
+        line-height: 1.2;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.95rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      .hero {
+        padding: 1.5rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1rem;
+      }
+
+      .cta {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        background: var(--accent);
+        color: #002620;
+        font-weight: 700;
+        border: none;
+        border-radius: 10px;
+        padding: 0.55rem 0.9rem;
+        cursor: pointer;
+      }
+
+      .btn.secondary {
+        background: transparent;
+        color: var(--text);
+        border: 1px solid var(--border);
+      }
+
+      .card,
+      .timeline-item,
+      .project,
+      .cert {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.15);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .card {
+        padding: 0.85rem;
+      }
+
+      .number {
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      .skills-layout,
+      .education-layout,
+      .experience-layout,
+      .projects-layout,
+      .certs-layout {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .skills-layout {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .skill-list {
+        list-style: none;
+        padding: 0;
+        margin: 0.65rem 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-list li {
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 0.22rem 0.65rem;
+        font-size: 0.83rem;
+        color: var(--muted);
+      }
+
+      .education-layout,
+      .experience-layout,
+      .projects-layout,
+      .certs-layout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .timeline-item,
+      .project,
+      .cert {
+        padding: 0.95rem;
+      }
+
+      .timeline-meta,
+      .project-meta {
+        margin-top: 0.35rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-top: 0.6rem;
+      }
+
+      .project-tags span {
+        font-size: 0.78rem;
+        border: 1px solid var(--border);
+        padding: 0.2rem 0.5rem;
+        border-radius: 999px;
+        color: var(--muted);
+      }
+
+      .project a {
+        margin-top: 0.75rem;
+        display: inline-block;
+        color: var(--accent);
+        font-size: 0.86rem;
+      }
+
+      .footer {
+        margin-top: 1.35rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero-grid,
+        .skills-layout,
+        .education-layout,
+        .experience-layout,
+        .projects-layout,
+        .certs-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .nav-toggle {
+          display: inline-flex;
+        }
+
+        .nav-links {
+          position: absolute;
+          right: 1rem;
+          top: calc(100% + 0.4rem);
+          flex-direction: column;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          padding: 0.5rem;
+          width: min(220px, 70vw);
+          display: none;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#overview" class="brand">devfolio</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#overview">Overview</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="overview" class="hero">
+        <div class="hero-grid">
+          <div>
+            <p class="muted">Full Stack Developer / Software Engineer</p>
+            <h1>Building reliable products with clean architecture and modern tooling.</h1>
+            <p class="muted" style="margin-top: 0.7rem">
+              This is a minimalist starter template for your portfolio. Replace sample data,
+              connect project links, and deploy to Vercel in minutes.
+            </p>
+            <div class="cta">
+              <button class="btn" id="emailBtn">Contact Me</button>
+              <a class="btn secondary" href="#projects">View Projects</a>
+            </div>
+          </div>
+          <div class="stats">
+            <article class="card">
+              <p class="number">4+ yrs</p>
+              <p class="muted">Engineering Experience</p>
+            </article>
+            <article class="card">
+              <p class="number">12+</p>
+              <p class="muted">Shipped Features</p>
+            </article>
+            <article class="card">
+              <p class="number">8</p>
+              <p class="muted">Core Technologies</p>
+            </article>
+            <article class="card">
+              <p class="number">99.9%</p>
+              <p class="muted">Uptime Focus</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-layout">
+          <article class="card">
+            <h3>Frontend</h3>
+            <ul class="skill-list">
+              <li>React</li>
+              <li>Next.js</li>
+              <li>TypeScript</li>
+              <li>Tailwind</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Backend</h3>
+            <ul class="skill-list">
+              <li>Node.js</li>
+              <li>Express</li>
+              <li>Python</li>
+              <li>PostgreSQL</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>DevOps & Tools</h3>
+            <ul class="skill-list">
+              <li>Docker</li>
+              <li>AWS</li>
+              <li>GitHub Actions</li>
+              <li>Vercel</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="education-layout">
+          <article class="timeline-item">
+            <h3>B.S. in Computer Science</h3>
+            <p class="timeline-meta">University Name • 2016 – 2020</p>
+            <p class="muted">Focus on distributed systems, databases, and software architecture.</p>
+          </article>
+          <article class="timeline-item">
+            <h3>Advanced Web Engineering Program</h3>
+            <p class="timeline-meta">Institute Name • 2021</p>
+            <p class="muted">Hands-on training in full stack development and cloud deployment.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="experience-layout">
+          <article class="timeline-item">
+            <h3>Software Engineer</h3>
+            <p class="timeline-meta">Tech Company • 2023 – Present</p>
+            <p class="muted">
+              Developed scalable APIs, implemented CI/CD, and improved page performance across core
+              customer workflows.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <h3>Full Stack Developer</h3>
+            <p class="timeline-meta">Startup Name • 2020 – 2023</p>
+            <p class="muted">
+              Built dashboard modules, role-based auth, and analytics pipelines for SaaS products.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-layout">
+          <article class="project">
+            <h3>Project Alpha</h3>
+            <p class="project-meta">A production-ready SaaS starter with auth and billing.</p>
+            <div class="project-tags">
+              <span>Next.js</span>
+              <span>Prisma</span>
+              <span>Stripe</span>
+            </div>
+            <a href="#" aria-label="Project Alpha Link">GitHub / Demo →</a>
+          </article>
+          <article class="project">
+            <h3>Project Beta</h3>
+            <p class="project-meta">Real-time collaboration board with WebSocket sync.</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node</span>
+              <span>Socket.IO</span>
+            </div>
+            <a href="#" aria-label="Project Beta Link">GitHub / Demo →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="certs-layout">
+          <article class="cert">
+            <h3>AWS Certified Developer</h3>
+            <p class="muted">Amazon Web Services • 2024</p>
+          </article>
+          <article class="cert">
+            <h3>Professional Scrum Developer</h3>
+            <p class="muted">Scrum.org • 2023</p>
+          </article>
+        </div>
+      </section>
+
+      <p class="footer">Template ready for Vercel deployment · Replace placeholders with your real data.</p>
+    </main>
+
+    <script>
+      const navToggle = document.getElementById("navToggle");
+      const navLinks = document.getElementById("navLinks");
+      const emailBtn = document.getElementById("emailBtn");
+      const sections = [...document.querySelectorAll("main section")];
+      const links = [...document.querySelectorAll(".nav-links a")];
+
+      navToggle?.addEventListener("click", () => {
+        navLinks?.classList.toggle("show");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", () => navLinks?.classList.remove("show"));
+      });
+
+      emailBtn?.addEventListener("click", () => {
+        window.location.href = "mailto:youremail@example.com";
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            links.forEach((l) => l.classList.remove("active"));
+            const active = links.find((l) => l.getAttribute("href") === `#${entry.target.id}`);
+            active?.classList.add("active");
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    </script>
+  </body>
+</html>
