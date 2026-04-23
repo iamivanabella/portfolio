@@ -10,13 +10,17 @@
     />
     <style>
       :root {
-        --bg: #0b0d10;
-        --card: #11151b;
-        --text: #e8ecf1;
-        --muted: #9ca8b7;
-        --accent: #68d391;
-        --border: #202834;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        --bg: #070b12;
+        --bg-soft: #0d1420;
+        --card: #111b2a;
+        --card-strong: #122239;
+        --text: #f0f5ff;
+        --muted: #9eb0c7;
+        --accent: #6ee7b7;
+        --accent-strong: #34d399;
+        --highlight: #60a5fa;
+        --border: #24374d;
+        --shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
       }
 
       * {
@@ -30,13 +34,16 @@
       body {
         margin: 0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        background: linear-gradient(180deg, #0b0d10 0%, #0e1218 100%);
+        background:
+          radial-gradient(circle at 12% 12%, rgba(96, 165, 250, 0.2), transparent 24%),
+          radial-gradient(circle at 88% 8%, rgba(52, 211, 153, 0.16), transparent 22%),
+          linear-gradient(180deg, var(--bg) 0%, #0a111b 50%, #0c1624 100%);
         color: var(--text);
         line-height: 1.6;
       }
 
       .container {
-        width: min(1040px, 92%);
+        width: min(1120px, 92%);
         margin: 0 auto;
       }
 
@@ -44,21 +51,22 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        backdrop-filter: blur(8px);
-        background: rgba(11, 13, 16, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px);
+        background: rgba(7, 11, 18, 0.75);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.8rem 0;
+        padding: 0.85rem 0;
         gap: 1rem;
       }
 
       .brand {
-        font-weight: 700;
+        font-weight: 800;
+        font-size: 1.05rem;
         letter-spacing: 0.4px;
       }
 
@@ -75,7 +83,7 @@
       .menu a {
         color: var(--muted);
         text-decoration: none;
-        padding: 0.4rem 0.65rem;
+        padding: 0.42rem 0.7rem;
         border-radius: 999px;
         border: 1px solid transparent;
         transition: all 0.2s ease;
@@ -86,26 +94,30 @@
       .menu a.active {
         color: var(--text);
         border-color: var(--border);
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.06);
       }
 
       section {
-        padding: 4.2rem 0 1.2rem;
+        padding: 4.4rem 0 1.4rem;
       }
 
       h1,
       h2,
       h3 {
         margin: 0 0 0.8rem;
-        line-height: 1.25;
+        line-height: 1.2;
       }
 
       h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2rem, 5vw, 3.1rem);
       }
 
       h2 {
-        font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+        font-size: clamp(1.4rem, 3.2vw, 2rem);
+      }
+
+      h3 {
+        font-size: clamp(1.05rem, 2vw, 1.25rem);
       }
 
       p {
@@ -113,24 +125,60 @@
         color: var(--muted);
       }
 
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.8rem;
+        padding: 0.32rem 0.75rem;
+        border: 1px solid rgba(110, 231, 183, 0.35);
+        border-radius: 999px;
+        background: rgba(110, 231, 183, 0.1);
+        color: #ccffe8;
+        font-weight: 600;
+        font-size: 0.82rem;
+      }
+
       .hero {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 1.2rem;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 1rem;
         align-items: stretch;
       }
 
       .card {
-        background: var(--card);
+        background: linear-gradient(180deg, rgba(18, 34, 57, 0.95), rgba(17, 27, 42, 0.9));
         border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 1rem;
+        border-radius: 18px;
+        padding: 1.2rem;
         box-shadow: var(--shadow);
       }
 
+      .hero-card {
+        padding: clamp(1.2rem, 3vw, 1.9rem);
+      }
+
       .hero .lead {
-        margin: 0.8rem 0 1.1rem;
-        max-width: 60ch;
+        margin: 0.9rem 0 1.2rem;
+        max-width: 62ch;
+        font-size: clamp(1rem, 2vw, 1.1rem);
+      }
+
+      .personality {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.6rem;
+        margin: 1rem 0 1.2rem;
+      }
+
+      .value-pill {
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 12px;
+        padding: 0.65rem;
+        background: rgba(255, 255, 255, 0.03);
+        text-align: center;
+        font-size: 0.88rem;
+        color: #d8e7f8;
       }
 
       .cta {
@@ -144,79 +192,123 @@
         color: var(--text);
         background: transparent;
         border-radius: 10px;
-        padding: 0.55rem 0.9rem;
+        padding: 0.6rem 0.95rem;
         text-decoration: none;
         transition: transform 0.2s ease, background 0.2s ease;
       }
 
       .btn.primary {
         background: var(--accent);
-        color: #06240f;
+        color: #052517;
         border-color: transparent;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .btn:hover {
         transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .btn.primary:hover {
-        background: #7be4a4;
+        background: #8bf1c3;
       }
 
       .stats {
         display: grid;
-        gap: 0.65rem;
+        gap: 0.7rem;
       }
 
       .stat {
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 0.8rem;
-        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 0.9rem;
+        background: rgba(8, 14, 24, 0.72);
       }
 
       .stat strong {
         display: block;
-        font-size: 1.35rem;
+        font-size: 1.4rem;
+        color: #ecfdf5;
       }
 
-      .chips {
+      .section-head {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
+        justify-content: space-between;
+        align-items: end;
+        gap: 0.8rem;
+        margin-bottom: 1rem;
       }
 
-      .chip {
-        padding: 0.4rem 0.68rem;
+      .section-sub {
+        font-size: 0.95rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.75rem;
+      }
+
+      .skill-item {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 0.8rem 0.7rem;
+        text-align: center;
+      }
+
+      .skill-icon {
+        width: 2.2rem;
+        height: 2.2rem;
         border-radius: 999px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.02);
-        font-size: 0.88rem;
-        color: #d4dde8;
+        margin: 0 auto 0.55rem;
+        display: grid;
+        place-items: center;
+        font-weight: 700;
+        background: rgba(96, 165, 250, 0.2);
+        border: 1px solid rgba(96, 165, 250, 0.35);
+        color: #dbeafe;
+      }
+
+      .skill-item:nth-child(2n) .skill-icon {
+        background: rgba(110, 231, 183, 0.2);
+        border-color: rgba(110, 231, 183, 0.3);
+        color: #d1fae5;
+      }
+
+      .skill-item strong {
+        display: block;
+        font-size: 0.9rem;
+      }
+
+      .skill-item span {
+        font-size: 0.8rem;
+        color: #b6c8de;
       }
 
       .timeline {
         display: grid;
-        gap: 0.8rem;
+        gap: 1rem;
       }
 
       .timeline article {
-        border-left: 2px solid var(--border);
-        padding-left: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
       }
 
       .meta {
-        font-size: 0.88rem;
-        color: #9ab0c6;
+        font-size: 0.9rem;
+        color: #9ec5ff;
+        margin-bottom: 0.45rem;
       }
 
       .project-filters {
         display: flex;
-        gap: 0.45rem;
+        gap: 0.5rem;
         flex-wrap: wrap;
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
       }
 
       .filter-btn {
@@ -224,43 +316,95 @@
         border: 1px solid var(--border);
         color: var(--muted);
         border-radius: 999px;
-        padding: 0.4rem 0.7rem;
+        padding: 0.42rem 0.75rem;
         cursor: pointer;
       }
 
       .filter-btn.active,
       .filter-btn:hover {
         color: var(--text);
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.06);
       }
 
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        gap: 0.8rem;
+        gap: 1rem;
       }
 
       .project {
         grid-column: span 6;
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
       }
 
-      .project h3 {
-        margin-bottom: 0.45rem;
+      .project-tag {
+        display: inline-flex;
+        width: fit-content;
+        font-size: 0.76rem;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 999px;
+        padding: 0.22rem 0.55rem;
+        color: #cfe0f5;
       }
 
       footer {
         padding: 2.7rem 0;
-        color: var(--muted);
-        text-align: center;
+        margin-top: 1.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      @media (max-width: 840px) {
+      .footer-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 0.55rem;
+        flex-wrap: wrap;
+      }
+
+      .social-links a {
+        width: 2.2rem;
+        height: 2.2rem;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        text-decoration: none;
+        color: var(--text);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 0.86rem;
+      }
+
+      .social-links a:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 920px) {
         .hero {
           grid-template-columns: 1fr;
         }
 
+        .skills-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
         .project {
           grid-column: span 12;
+        }
+
+        .personality {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -270,6 +414,15 @@
         }
 
         .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .skills-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .footer-wrap {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -294,12 +447,18 @@
     <main class="container">
       <section id="overview">
         <div class="hero">
-          <article class="card">
+          <article class="card hero-card">
+            <span class="eyebrow">✨ Building reliable products with clean execution</span>
             <h1>Hi, I'm John Ivan Abella</h1>
             <p class="lead">
-              Backend-leaning full-stack software engineer with 4+ years of experience delivering Moodle and
-              WordPress solutions, production debugging, and deployment support across Linux-hosted environments.
+              I engineer Moodle and WordPress experiences that are stable, fast, and easy to maintain. I blend
+              backend precision with practical UI thinking so every feature feels intentional and production-ready.
             </p>
+            <div class="personality" aria-label="Work style highlights">
+              <div class="value-pill">🧠 Organized problem-solver</div>
+              <div class="value-pill">🎯 Quality-first delivery</div>
+              <div class="value-pill">🤝 Clear, proactive communication</div>
+            </div>
             <div class="cta">
               <a class="btn primary" href="#projects">View Projects</a>
               <a class="btn" href="mailto:abella.ivanl8@gmail.com">Email Me</a>
@@ -313,11 +472,11 @@
               <p>Professional software engineering experience</p>
             </div>
             <div class="stat">
-              <strong>5-10</strong>
-              <p>Client projects supported at Capytech (unverified)</p>
+              <strong>Moodle + WordPress</strong>
+              <p>Specialized builds, debugging, and deployment support</p>
             </div>
             <div class="stat">
-              <strong>Remote</strong>
+              <strong>Remote-ready</strong>
               <p>Open to full-time or long-term contract work</p>
             </div>
           </aside>
@@ -326,18 +485,21 @@
 
       <section id="skills">
         <article class="card">
-          <h2>Skills</h2>
-          <div class="chips" aria-label="Skill list">
-            <span class="chip">PHP / LAMP</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Moodle Plugin Development</span>
-            <span class="chip">WordPress / Elementor</span>
-            <span class="chip">HTML / CSS</span>
-            <span class="chip">AWS / Cloudways / WP Engine</span>
-            <span class="chip">Linux / SSH / Deployments</span>
-            <span class="chip">DNS / SSL / Redirects / Backups</span>
-            <span class="chip">Debugging & Production Support</span>
+          <div class="section-head">
+            <h2>Skills Stack</h2>
+            <p class="section-sub">Tools and platforms I use to ship clean, maintainable work.</p>
+          </div>
+          <div class="skills-grid" aria-label="Skill list">
+            <article class="skill-item"><div class="skill-icon">PHP</div><strong>PHP / LAMP</strong><span>Backend</span></article>
+            <article class="skill-item"><div class="skill-icon">JS</div><strong>JavaScript</strong><span>Frontend logic</span></article>
+            <article class="skill-item"><div class="skill-icon">SQL</div><strong>MySQL</strong><span>Data modeling</span></article>
+            <article class="skill-item"><div class="skill-icon">M</div><strong>Moodle Dev</strong><span>Plugins & setup</span></article>
+            <article class="skill-item"><div class="skill-icon">WP</div><strong>WordPress</strong><span>Elementor + theme work</span></article>
+            <article class="skill-item"><div class="skill-icon">H/C</div><strong>HTML / CSS</strong><span>Clean UI foundations</span></article>
+            <article class="skill-item"><div class="skill-icon">AWS</div><strong>AWS / Cloudways</strong><span>Hosting & delivery</span></article>
+            <article class="skill-item"><div class="skill-icon">SSH</div><strong>Linux / SSH</strong><span>Ops workflows</span></article>
+            <article class="skill-item"><div class="skill-icon">DNS</div><strong>DNS / SSL</strong><span>Release support</span></article>
+            <article class="skill-item"><div class="skill-icon">QA</div><strong>Debugging</strong><span>Production reliability</span></article>
           </div>
         </article>
       </section>
@@ -360,7 +522,10 @@
 
       <section id="experience">
         <article class="card">
-          <h2>Work Experience</h2>
+          <div class="section-head">
+            <h2>Work Experience</h2>
+            <p class="section-sub">Impact-focused roles with platform ownership and delivery.</p>
+          </div>
           <div class="timeline">
             <article>
               <h3>Moodle Developer • ScienceXplorers</h3>
@@ -424,7 +589,10 @@
 
       <section id="projects">
         <article class="card">
-          <h2>Projects</h2>
+          <div class="section-head">
+            <h2>Projects</h2>
+            <p class="section-sub">Selected work demonstrating product thinking and technical depth.</p>
+          </div>
           <div class="project-filters" role="group" aria-label="Project filters">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="frontend">WordPress</button>
@@ -434,6 +602,7 @@
 
           <div class="projects-grid">
             <article class="card project" data-type="backend">
+              <span class="project-tag">Moodle</span>
               <h3>Custom Moodle Plugin Work</h3>
               <p>
                 Extended plugin behavior and custom question types for Practice Tests Academy, including spreadsheet-like
@@ -441,6 +610,7 @@
               </p>
             </article>
             <article class="card project" data-type="backend">
+              <span class="project-tag">Analytics</span>
               <h3>Moodle Charting System</h3>
               <p>
                 Built Chart.js dashboards inside Moodle to surface near-real-time course analytics and improve
@@ -448,12 +618,14 @@
               </p>
             </article>
             <article class="card project" data-type="fullstack">
+              <span class="project-tag">Full Stack</span>
               <h3>Work Immersion Management System</h3>
               <p>
                 Thesis project built on a LAMP stack to digitize work immersion approvals, tracking, and reporting.
               </p>
             </article>
             <article class="card project" data-type="frontend">
+              <span class="project-tag">WordPress</span>
               <h3>Efficasent Oil Event Website</h3>
               <p>
                 Project-based WordPress and Elementor launch delivered on Cloudways with deployment checks for SSL,
@@ -478,11 +650,17 @@
     </main>
 
     <footer>
-      <div class="container">
+      <div class="container footer-wrap">
         <small>
           © <span id="year"></span> John Ivan Abella • Zamboanga City 7000, Philippines •
           <a href="mailto:abella.ivanl8@gmail.com" style="color: inherit">abella.ivanl8@gmail.com</a>
         </small>
+        <div class="social-links" aria-label="Social links">
+          <a href="#" aria-label="LinkedIn placeholder" title="LinkedIn placeholder">in</a>
+          <a href="#" aria-label="GitHub placeholder" title="GitHub placeholder">gh</a>
+          <a href="#" aria-label="X or Twitter placeholder" title="X placeholder">x</a>
+          <a href="#" aria-label="Behance placeholder" title="Behance placeholder">be</a>
+        </div>
       </div>
     </footer>
 
@@ -518,7 +696,7 @@
           const filter = button.dataset.filter;
           projects.forEach((project) => {
             const matches = filter === 'all' || project.dataset.type === filter;
-            project.style.display = matches ? 'block' : 'none';
+            project.style.display = matches ? 'flex' : 'none';
           });
         });
       });
