@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Full Stack Developer Portfolio Template</title>
+    <meta
+      name="description"
+      content="Minimalist, responsive portfolio template for a full stack developer/software engineer."
+    />
+    <style>
+      :root {
+        --bg: #f7f7f8;
+        --surface: #ffffff;
+        --text: #111111;
+        --muted: #5b5b5b;
+        --border: #e8e8e8;
+        --accent: #111111;
+        --accent-contrast: #ffffff;
+        --shadow: 0 8px 26px rgba(0, 0, 0, 0.04);
+      }
+
+      [data-theme='dark'] {
+        --bg: #0f1115;
+        --surface: #171b21;
+        --text: #f4f6fa;
+        --muted: #acb2bd;
+        --border: #2a303a;
+        --accent: #f4f6fa;
+        --accent-contrast: #111111;
+        --shadow: none;
+      }
+
+      * { box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1100px, 92%);
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in srgb, var(--bg) 82%, transparent);
+        backdrop-filter: blur(8px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: 68px;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a,
+      button,
+      .chip {
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font: inherit;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      button:hover,
+      .chip:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+      }
+
+      main { padding: 2rem 0 4rem; }
+
+      section {
+        margin-top: 2.1rem;
+        padding: 1.2rem;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        box-shadow: var(--shadow);
+      }
+
+      h1, h2, h3 { line-height: 1.2; margin: 0 0 0.7rem; }
+      h1 { font-size: clamp(1.9rem, 4vw, 3rem); }
+      h2 { font-size: clamp(1.2rem, 2.3vw, 1.7rem); }
+      p { margin: 0 0 0.9rem; color: var(--muted); }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.35fr 1fr;
+        gap: 1rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(130px, 1fr));
+        gap: 0.65rem;
+      }
+
+      .stat {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 0.8rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.35rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 0.8rem;
+      }
+
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1rem;
+      }
+
+      .tags {
+        display: flex;
+        gap: 0.4rem;
+        flex-wrap: wrap;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .timeline article {
+        border-left: 3px solid var(--accent);
+        padding: 0.1rem 0.9rem;
+      }
+
+      .meta {
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+
+      .project-toolbar {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.6rem;
+      }
+
+      .chip.active {
+        background: var(--accent);
+        color: var(--accent-contrast);
+        border-color: var(--accent);
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 0.8rem;
+      }
+
+      .project[hidden] { display: none; }
+
+      footer {
+        margin-top: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 840px) {
+        .hero,
+        .grid,
+        .projects { grid-template-columns: 1fr; }
+
+        .nav {
+          align-items: flex-start;
+          flex-direction: column;
+          padding-block: 0.7rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main">
+        <div class="brand">YourName.dev</div>
+        <div class="nav-links">
+          <a href="#overview">Overview</a>
+          <a href="#skills">Skills</a>
+          <a href="#education">Education</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#certificates">Certificates</a>
+          <button id="themeToggle" type="button" aria-label="Toggle dark mode">Dark</button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section id="overview" class="hero">
+        <div>
+          <h1>Full Stack Developer &amp; Software Engineer</h1>
+          <p>
+            I build scalable web products, intuitive user experiences, and robust APIs. This minimalist template gives
+            you a clean starting point for showcasing your professional journey.
+          </p>
+          <div class="hero-actions">
+            <a class="chip" href="#projects">View Projects</a>
+            <a class="chip" href="#experience">Work Experience</a>
+            <a class="chip" href="mailto:you@example.com">Contact</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Quick profile highlights">
+          <h2>Quick Snapshot</h2>
+          <div class="stats">
+            <div class="stat">
+              <strong>4+</strong>
+              <span class="meta">Years Experience</span>
+            </div>
+            <div class="stat">
+              <strong>15+</strong>
+              <span class="meta">Projects Shipped</span>
+            </div>
+            <div class="stat">
+              <strong>10k+</strong>
+              <span class="meta">Monthly Users Served</span>
+            </div>
+            <div class="stat">
+              <strong>99.9%</strong>
+              <span class="meta">Uptime on Key Services</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <p>Core technologies and tools across front-end, back-end, and cloud.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Frontend</h3>
+            <div class="tags">
+              <span class="chip">React</span><span class="chip">Next.js</span><span class="chip">TypeScript</span>
+              <span class="chip">Tailwind CSS</span><span class="chip">Accessibility</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Backend</h3>
+            <div class="tags">
+              <span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">Python</span>
+              <span class="chip">Django</span><span class="chip">REST / GraphQL</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Data &amp; Infra</h3>
+            <div class="tags">
+              <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Redis</span>
+              <span class="chip">Docker</span><span class="chip">AWS / Vercel</span>
+            </div>
+          </article>
+          <article class="card">
+            <h3>Practices</h3>
+            <div class="tags">
+              <span class="chip">CI/CD</span><span class="chip">Testing</span><span class="chip">System Design</span>
+              <span class="chip">Agile</span><span class="chip">Code Reviews</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="timeline">
+          <article>
+            <h3>B.S. in Computer Science</h3>
+            <p class="meta">University Name · 2016 – 2020</p>
+            <p>Focus: software engineering, algorithms, cloud systems, and human-computer interaction.</p>
+          </article>
+          <article>
+            <h3>Relevant Coursework</h3>
+            <p class="meta">Distributed Systems · Database Design · Web Engineering</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="experience">
+        <h2>Work Experience</h2>
+        <div class="timeline">
+          <article>
+            <h3>Software Engineer · Company A</h3>
+            <p class="meta">2023 – Present</p>
+            <p>Built and deployed customer-facing features end-to-end, improving activation by 18%.</p>
+          </article>
+          <article>
+            <h3>Full Stack Developer · Company B</h3>
+            <p class="meta">2021 – 2023</p>
+            <p>Developed internal analytics dashboards and API services used across 5 teams.</p>
+          </article>
+          <article>
+            <h3>Junior Developer · Company C</h3>
+            <p class="meta">2020 – 2021</p>
+            <p>Maintained production apps, resolved performance bottlenecks, and improved test coverage.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <p>Filter projects by stack to quickly highlight your strengths.</p>
+        <div class="project-toolbar" role="toolbar" aria-label="Filter projects by category">
+          <button class="chip active" data-filter="all" type="button">All</button>
+          <button class="chip" data-filter="frontend" type="button">Frontend</button>
+          <button class="chip" data-filter="backend" type="button">Backend</button>
+          <button class="chip" data-filter="fullstack" type="button">Full Stack</button>
+        </div>
+        <div class="projects">
+          <article class="card project" data-category="fullstack">
+            <h3>Portfolio CMS</h3>
+            <p>Admin-driven portfolio with markdown content, authentication, and media uploads.</p>
+            <p class="meta">Next.js · PostgreSQL · Vercel</p>
+          </article>
+          <article class="card project" data-category="frontend">
+            <h3>UI Component Library</h3>
+            <p>Reusable, accessible component kit documented with interactive examples.</p>
+            <p class="meta">React · TypeScript · Storybook</p>
+          </article>
+          <article class="card project" data-category="backend">
+            <h3>Event Processing API</h3>
+            <p>Queue-backed service for processing webhooks with retries and observability.</p>
+            <p class="meta">Node.js · Redis · Docker</p>
+          </article>
+          <article class="card project" data-category="fullstack">
+            <h3>Team Task Platform</h3>
+            <p>Collaborative productivity app with real-time updates and role-based permissions.</p>
+            <p class="meta">React · Python · PostgreSQL</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>AWS Certified Developer</h3>
+            <p class="meta">Amazon Web Services · 2024</p>
+          </article>
+          <article class="card">
+            <h3>Meta Front-End Developer</h3>
+            <p class="meta">Coursera · 2023</p>
+          </article>
+          <article class="card">
+            <h3>Google Cloud Associate Engineer</h3>
+            <p class="meta">Google Cloud · 2022</p>
+          </article>
+          <article class="card">
+            <h3>Scrum Fundamentals</h3>
+            <p class="meta">Scrum Study · 2021</p>
+          </article>
+        </div>
+      </section>
+
+      <footer>
+        Template ready for Vercel deployment — customize with your personal information and project links.
+      </footer>
+    </main>
+
+    <script>
+      const root = document.documentElement;
+      const themeToggle = document.getElementById('themeToggle');
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = 'Light';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        const darkEnabled = root.getAttribute('data-theme') === 'dark';
+        root.setAttribute('data-theme', darkEnabled ? 'light' : 'dark');
+        localStorage.setItem('theme', darkEnabled ? 'light' : 'dark');
+        themeToggle.textContent = darkEnabled ? 'Dark' : 'Light';
+      });
+
+      const chips = document.querySelectorAll('[data-filter]');
+      const projects = document.querySelectorAll('.project');
+
+      chips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          chips.forEach((item) => item.classList.remove('active'));
+          chip.classList.add('active');
+
+          const selected = chip.dataset.filter;
+          projects.forEach((project) => {
+            project.hidden = !(selected === 'all' || project.dataset.category === selected);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
