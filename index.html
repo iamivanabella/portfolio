@@ -3,22 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Ivan Abella | Software Engineer</title>
+    <title>John Ivan Abella | Full Stack Developer</title>
     <meta
       name="description"
-      content="Portfolio of John Ivan Abella, a backend-leaning full-stack developer focused on Moodle and WordPress solutions."
+      content="Portfolio of John Ivan Abella, a full stack developer focused on reliable product delivery and Moodle/WordPress specialist services."
     />
     <style>
       :root {
-        --bg: #070a12;
-        --surface: #0e1320;
-        --surface-2: #131c2c;
+        --bg: #050812;
+        --bg-soft: #0a1020;
         --text: #edf3ff;
         --muted: #9eb0c8;
-        --accent: #5ce6b1;
-        --accent-2: #7f8cff;
-        --border: #23324a;
-        --shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+        --line: #20324b;
+        --accent: #f7b500;
+        --accent-2: #5ce6b1;
       }
 
       * {
@@ -33,68 +31,83 @@
         margin: 0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
         color: var(--text);
-        line-height: 1.65;
-        background: radial-gradient(circle at top right, rgba(127, 140, 255, 0.18), transparent 35%),
-          radial-gradient(circle at top left, rgba(92, 230, 177, 0.13), transparent 30%),
-          linear-gradient(180deg, #060910 0%, #0b1220 100%);
+        line-height: 1.7;
+        background: radial-gradient(circle at 80% -10%, rgba(92, 230, 177, 0.15), transparent 40%),
+          radial-gradient(circle at 10% 10%, rgba(127, 140, 255, 0.2), transparent 34%), var(--bg);
       }
 
-      .container {
-        width: min(1120px, 92%);
-        margin: 0 auto;
-      }
-
-      header {
-        position: sticky;
+      .story-nav {
+        position: fixed;
         top: 0;
-        z-index: 100;
+        width: 100%;
+        z-index: 20;
         backdrop-filter: blur(8px);
-        background: rgba(7, 10, 18, 0.78);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(5, 8, 18, 0.72);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
-      .nav {
+      .story-nav-inner {
+        width: min(1100px, 92%);
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 0.85rem 0;
         gap: 1rem;
-        padding: 0.9rem 0;
       }
 
       .brand {
         font-weight: 700;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.4px;
       }
 
       .brand span {
-        color: var(--accent);
+        color: var(--accent-2);
       }
 
       .menu {
         display: flex;
         flex-wrap: wrap;
-        gap: 0.45rem;
+        gap: 0.4rem;
       }
 
       .menu a {
-        color: var(--muted);
         text-decoration: none;
-        border: 1px solid transparent;
+        color: var(--muted);
+        font-size: 0.88rem;
+        padding: 0.35rem 0.7rem;
         border-radius: 999px;
-        padding: 0.42rem 0.72rem;
-        font-size: 0.91rem;
-        transition: 0.2s ease;
+        border: 1px solid transparent;
       }
 
       .menu a:hover,
       .menu a.active {
         color: var(--text);
-        background: rgba(255, 255, 255, 0.05);
-        border-color: var(--border);
+        border-color: var(--line);
+        background: rgba(255, 255, 255, 0.06);
       }
 
-      section {
-        padding: 4.4rem 0 1.3rem;
+      main {
+        padding-top: 64px;
+      }
+
+      .chapter {
+        min-height: 86vh;
+        padding: clamp(3rem, 9vh, 6rem) 0;
+      }
+
+      .chapter-inner {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+      }
+
+      .kicker {
+        color: var(--accent);
+        font-size: 0.83rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+        display: inline-block;
       }
 
       h1,
@@ -105,12 +118,13 @@
       }
 
       h1 {
-        font-size: clamp(2.1rem, 5vw, 3.5rem);
+        font-size: clamp(2.1rem, 5.7vw, 4.2rem);
+        max-width: 14ch;
       }
 
       h2 {
-        font-size: clamp(1.4rem, 3vw, 2rem);
-        margin-bottom: 0.9rem;
+        font-size: clamp(1.45rem, 3vw, 2.4rem);
+        margin-bottom: 0.8rem;
       }
 
       p {
@@ -118,264 +132,169 @@
         color: var(--muted);
       }
 
-      .card {
-        background: linear-gradient(165deg, rgba(19, 28, 44, 0.88), rgba(14, 19, 32, 0.9));
-        border: 1px solid var(--border);
-        border-radius: 18px;
-        padding: 1.35rem;
-        box-shadow: var(--shadow);
-      }
-
-      .hero {
+      .intro-grid {
         display: grid;
-        grid-template-columns: 1.3fr 1fr;
-        gap: 1rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2rem;
+        align-items: end;
       }
 
-      .status-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        border-radius: 999px;
-        border: 1px solid rgba(92, 230, 177, 0.28);
-        background: rgba(92, 230, 177, 0.1);
-        color: #cbffe9;
-        font-size: 0.82rem;
-        padding: 0.3rem 0.65rem;
-        margin-bottom: 0.75rem;
+      .intro-copy p {
+        max-width: 60ch;
+        margin-top: 1rem;
       }
 
-      .dot {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 0 6px rgba(92, 230, 177, 0.17);
-      }
-
-      .hero .lead {
-        margin: 0.8rem 0 1rem;
-        max-width: 65ch;
-      }
-
-      .persona {
-        margin: 0.7rem 0 1.2rem;
-        color: #c7d9f1;
-        border-left: 3px solid var(--accent-2);
-        padding-left: 0.75rem;
-      }
-
-      .cta {
-        display: flex;
-        gap: 0.6rem;
-        flex-wrap: wrap;
-      }
-
-      .btn {
-        text-decoration: none;
-        border: 1px solid var(--border);
-        color: var(--text);
-        border-radius: 11px;
-        padding: 0.58rem 0.9rem;
-        transition: 0.2s ease;
-      }
-
-      .btn:hover {
-        transform: translateY(-2px);
-        background: rgba(255, 255, 255, 0.06);
-      }
-
-      .btn.primary {
-        border-color: transparent;
-        color: #032a1c;
-        font-weight: 650;
-        background: linear-gradient(145deg, #5ce6b1, #88f0c8);
-      }
-
-      .stats {
+      .intro-highlights {
         display: grid;
-        gap: 0.7rem;
-      }
-
-      .stat {
-        border-radius: 14px;
-        border: 1px solid var(--border);
-        padding: 0.9rem;
-        background: rgba(255, 255, 255, 0.02);
-      }
-
-      .stat strong {
-        display: block;
-        font-size: 1.4rem;
-      }
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 0.8rem;
-      }
-
-      .skill-card {
-        display: grid;
-        place-items: center;
-        gap: 0.35rem;
-        text-align: center;
-        border-radius: 14px;
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.02);
-        padding: 1rem 0.7rem;
-      }
-
-      .skill-logo {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        font-size: 1.45rem;
-        background: rgba(127, 140, 255, 0.12);
-        border: 1px solid rgba(127, 140, 255, 0.34);
-      }
-
-      .skill-card span:last-child {
-        font-size: 0.88rem;
-        color: #d7e5fa;
-      }
-
-      .timeline {
-        display: grid;
-        gap: 1rem;
-      }
-
-      .timeline article {
-        border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 14px;
-        padding: 1rem;
-      }
-
-      .meta {
-        margin: 0.3rem 0 0.6rem;
-        color: #9db5d1;
-        font-size: 0.9rem;
-      }
-
-      .work-grid,
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
         gap: 0.9rem;
       }
 
-      .experience-item {
-        grid-column: span 6;
+      .highlight {
+        border-left: 2px solid var(--accent-2);
+        padding-left: 0.85rem;
       }
 
-      .experience-item ul {
-        margin: 0.4rem 0 0;
+      .highlight strong {
+        display: block;
+        color: var(--text);
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1.3rem;
+      }
+
+      .service {
+        border: 1px solid var(--line);
+        background: linear-gradient(160deg, rgba(13, 20, 36, 0.86), rgba(9, 13, 25, 0.7));
+        border-radius: 12px;
+        padding: 1rem;
+      }
+
+      .service h3 {
+        margin-bottom: 0.45rem;
+      }
+
+      .service ul {
+        margin: 0;
         padding-left: 1.1rem;
+      }
+
+      .service li {
         color: #c8d8ec;
       }
 
-      .project-filters {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 0.9rem;
+      .skill-flow {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.75rem;
+        margin-top: 1.2rem;
       }
 
-      .filter-btn {
-        background: transparent;
-        border: 1px solid var(--border);
-        color: var(--muted);
-        padding: 0.4rem 0.75rem;
+      .pill {
+        text-align: center;
         border-radius: 999px;
-        cursor: pointer;
+        border: 1px solid var(--line);
+        padding: 0.55rem 0.9rem;
+        background: rgba(255, 255, 255, 0.03);
+        color: #d8e5f7;
+        font-size: 0.9rem;
       }
 
-      .filter-btn.active,
-      .filter-btn:hover {
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.06);
+      .timeline-wrap {
+        margin-top: 1.5rem;
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline-wrap::before {
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(var(--accent), #30517a);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding: 0.4rem 0 1.6rem;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -1.66rem;
+        top: 0.7rem;
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 5px rgba(247, 181, 0, 0.17);
+      }
+
+      .role {
+        font-size: 1.08rem;
+        color: #f2f7ff;
+      }
+
+      .meta {
+        font-size: 0.88rem;
+        margin: 0.18rem 0 0.5rem;
+        color: #a7bbd5;
+      }
+
+      .timeline-item ul {
+        margin: 0;
+        padding-left: 1.1rem;
+      }
+
+      .timeline-item li {
+        color: #c8d8ec;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 0.9rem;
+        margin-top: 1.1rem;
       }
 
       .project {
-        grid-column: span 6;
-      }
-
-      .project .badge {
-        display: inline-block;
-        margin-bottom: 0.55rem;
-        border-radius: 999px;
-        padding: 0.2rem 0.55rem;
-        font-size: 0.76rem;
-        border: 1px solid rgba(92, 230, 177, 0.35);
-        color: #beffea;
-      }
-
-      .project h3 {
-        margin-bottom: 0.35rem;
-      }
-
-      .project p {
-        margin-bottom: 0.6rem;
-      }
-
-      .project a {
-        color: #bed3ff;
-        text-decoration: none;
-      }
-
-      footer {
-        padding: 2.8rem 0;
-      }
-
-      .footer-wrap {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        align-items: center;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding-top: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .socials {
-        display: flex;
-        gap: 0.55rem;
-      }
-
-      .social {
-        width: 38px;
-        height: 38px;
-        border-radius: 11px;
-        display: grid;
-        place-items: center;
-        border: 1px solid var(--border);
-        color: var(--text);
-        text-decoration: none;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem;
         background: rgba(255, 255, 255, 0.03);
       }
 
-      .social:hover {
-        background: rgba(127, 140, 255, 0.15);
-        border-color: rgba(127, 140, 255, 0.45);
+      .project small {
+        color: #b6ffe7;
       }
 
-      @media (max-width: 900px) {
-        .hero,
-        .experience-item,
-        .project {
-          grid-column: span 12;
-        }
+      .chapter--soft {
+        background: linear-gradient(180deg, rgba(9, 14, 28, 0.38), rgba(13, 20, 36, 0.15));
+      }
 
-        .hero {
+      footer {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+        padding: 2rem 0 2.8rem;
+        color: #9fb3cf;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      @media (max-width: 860px) {
+        .intro-grid,
+        .services {
           grid-template-columns: 1fr;
         }
       }
 
       @media (max-width: 560px) {
-        .nav {
+        .story-nav-inner {
           flex-direction: column;
           align-items: flex-start;
         }
@@ -383,235 +302,182 @@
     </style>
   </head>
   <body>
-    <header>
-      <div class="container nav">
+    <header class="story-nav">
+      <div class="story-nav-inner">
         <div class="brand">John Ivan <span>Abella</span></div>
         <nav class="menu" aria-label="Section navigation">
-          <a href="#overview" class="active">Overview</a>
-          <a href="#skills">Skills</a>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
+          <a href="#start" class="active">Start</a>
+          <a href="#services">Special Services</a>
+          <a href="#timeline">Work History</a>
           <a href="#projects">Projects</a>
-          <a href="#certificates">Certificates</a>
+          <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
-    <main class="container">
-      <section id="overview">
-        <div class="hero">
-          <article class="card">
-            <div class="status-chip"><span class="dot" aria-hidden="true"></span>Available for Full-Time / Long-Term Freelance</div>
-            <h1>I build systems that are clean, fast, and dependable.</h1>
-            <p class="lead">
-              Hi, I'm <strong style="color: #d9ffef">John Ivan Abella</strong> — a backend-leaning full-stack engineer who ships quality Moodle and WordPress products with organized code, maintainable architecture, and practical delivery.
+    <main>
+      <section id="start" class="chapter">
+        <div class="chapter-inner intro-grid">
+          <div class="intro-copy">
+            <span class="kicker">Chapter 01 · Introduction</span>
+            <h1>Full Stack Developer building practical digital products end-to-end.</h1>
+            <p>
+              Hi, I'm <strong style="color: #dbffef">John Ivan Abella</strong>. I design and deliver complete web solutions—from front-end user experience to back-end logic, integrations, deployment, and long-term support.
             </p>
-            <p class="persona">
-              I bring calm execution, strong debugging discipline, and clear communication. I enjoy turning messy requirements into simple, stable solutions clients can trust.
+            <p>
+              I focus on calm execution, clean code, and fast iteration so teams can launch confidently and maintain products without friction.
             </p>
-            <div class="cta">
-              <a class="btn primary" href="#projects">See Selected Work</a>
-              <a class="btn" href="mailto:abella.ivanl8@gmail.com">Email Me</a>
-              <a class="btn" href="tel:+639171355629">Call Me</a>
-            </div>
-          </article>
-
-          <aside class="card stats" aria-label="Quick highlights">
-            <div class="stat">
-              <strong>4+ Years</strong>
-              <p>Professional software engineering across Moodle, WordPress, and full-stack web delivery.</p>
-            </div>
-            <div class="stat">
-              <strong>5-10 Projects</strong>
-              <p>Client implementations with deployment, debugging, optimization, and support ownership.</p>
-            </div>
-            <div class="stat">
-              <strong>Quality-First</strong>
-              <p>Focused on readable code, structured architecture, and production-safe changes.</p>
-            </div>
-          </aside>
+          </div>
+          <div class="intro-highlights" aria-label="Quick highlights">
+            <div class="highlight"><strong>4+ Years</strong><span>Professional web development across client and product environments.</span></div>
+            <div class="highlight"><strong>Full Stack Delivery</strong><span>UI, APIs, databases, deployment, debugging, and optimization.</span></div>
+            <div class="highlight"><strong>Remote Ready</strong><span>Available for full-time roles and long-term freelance partnerships.</span></div>
+          </div>
         </div>
       </section>
 
-      <section id="skills">
-        <article class="card">
-          <h2>Skills & Tech Stack</h2>
-          <p style="margin-bottom: 0.9rem">Core tools I use to build secure, maintainable, and scalable client solutions.</p>
-          <div class="skills-grid" aria-label="Skill list with icons">
-            <div class="skill-card"><span class="skill-logo">🐘</span><span>PHP / LAMP</span></div>
-            <div class="skill-card"><span class="skill-logo">🟨</span><span>JavaScript</span></div>
-            <div class="skill-card"><span class="skill-logo">🐬</span><span>MySQL</span></div>
-            <div class="skill-card"><span class="skill-logo">🎓</span><span>Moodle</span></div>
-            <div class="skill-card"><span class="skill-logo">🧩</span><span>WordPress</span></div>
-            <div class="skill-card"><span class="skill-logo">🎨</span><span>Elementor / UI</span></div>
-            <div class="skill-card"><span class="skill-logo">☁️</span><span>AWS / Cloudways</span></div>
-            <div class="skill-card"><span class="skill-logo">🐧</span><span>Linux / SSH</span></div>
-            <div class="skill-card"><span class="skill-logo">🔒</span><span>SSL / DNS / Backups</span></div>
-            <div class="skill-card"><span class="skill-logo">🛠️</span><span>Debugging / Support</span></div>
+      <section id="services" class="chapter chapter--soft">
+        <div class="chapter-inner">
+          <span class="kicker">Chapter 02 · Special Services</span>
+          <h2>Moodle & WordPress specialist services</h2>
+          <p>Beyond full-stack product work, these are dedicated service tracks I provide for clients who need focused platform expertise.</p>
+
+          <div class="services">
+            <article class="service">
+              <h3>Moodle Services</h3>
+              <ul>
+                <li>Moodle setup, deployment, upgrades, and migrations</li>
+                <li>Custom plugin adjustments and feature extensions</li>
+                <li>Roles, enrollment flows, cron, backups, and environment tuning</li>
+              </ul>
+            </article>
+            <article class="service">
+              <h3>WordPress Services</h3>
+              <ul>
+                <li>WordPress + Elementor builds for events and business websites</li>
+                <li>Custom post types, reusable components, and content architecture</li>
+                <li>Deployment checks: DNS, SSL, performance, and launch readiness</li>
+              </ul>
+            </article>
           </div>
-        </article>
+
+          <div class="skill-flow" aria-label="Core stack">
+            <span class="pill">PHP / LAMP</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Linux / SSH</span>
+            <span class="pill">AWS / Cloudways</span>
+            <span class="pill">Debugging & Support</span>
+          </div>
+        </div>
       </section>
 
-      <section id="education">
-        <article class="card">
-          <h2>Education</h2>
-          <div class="timeline">
-            <article>
-              <h3>Bachelor of Science in Information Technology</h3>
-              <p class="meta">Ateneo de Zamboanga University • Jun 2015 - Apr 2021</p>
-              <p>Thesis: Work Immersion Management System — built to digitize approval, tracking, and reporting workflows.</p>
+      <section id="timeline" class="chapter">
+        <div class="chapter-inner">
+          <span class="kicker">Chapter 03 · Work History</span>
+          <h2>Career timeline</h2>
+          <p>A continuous path of shipping, maintaining, and improving real-world products.</p>
+
+          <div class="timeline-wrap">
+            <article class="timeline-item">
+              <h3 class="role">Moodle Developer · ScienceXplorers</h3>
+              <p class="meta">Jan 2026 – Present · Upwork Freelance</p>
+              <ul>
+                <li>Built and stabilized Moodle environment setup and course architecture.</li>
+                <li>Configured roles, cron, enrollment, backup, and email workflows.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <h3 class="role">Moodle Developer · The Yesfinity</h3>
+              <p class="meta">Jan 2026 · Upwork Freelance</p>
+              <ul>
+                <li>Deployed Moodle on AWS and configured Linux-based hosting stack.</li>
+                <li>Documented setup and hardening process for maintainability.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <h3 class="role">WordPress Developer · Himbing Nation / Efficasent Oil Event</h3>
+              <p class="meta">Jul 2025 – Present · Project-Based</p>
+              <ul>
+                <li>Delivered event website using WordPress + Elementor.</li>
+                <li>Handled deployment readiness: DNS, SSL, redirects, and caching.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <h3 class="role">WordPress Developer · Experts Direct</h3>
+              <p class="meta">Apr 2024 – Present · Contract/Freelance</p>
+              <ul>
+                <li>Built responsive pages and reusable shortcodes/CPT components.</li>
+                <li>Improved forms reliability and reduced maintenance overhead.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <h3 class="role">Junior Full Stack Developer · Tribute Technology</h3>
+              <p class="meta">Dec 2023 – Jun 2024 · Full-Time</p>
+              <ul>
+                <li>Built and modified reports using PHP, MySQL, and JavaScript.</li>
+                <li>Reproduced production issues quickly for targeted fixes.</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item">
+              <h3 class="role">Solutions Developer · Capytech</h3>
+              <p class="meta">Feb 2022 – Nov 2023 · Full-Time</p>
+              <ul>
+                <li>Delivered Moodle deployments, customizations, and WordPress pages.</li>
+                <li>Contributed documentation handoff and junior mentoring.</li>
+              </ul>
             </article>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section id="experience">
-        <article class="card">
-          <h2>Work Experience</h2>
-          <p style="margin-bottom: 0.95rem">Hands-on delivery across LMS, WordPress, deployments, and production issue resolution.</p>
-          <div class="work-grid">
-            <article class="experience-item timeline">
-              <article>
-                <h3>Moodle Developer • ScienceXplorers</h3>
-                <p class="meta">Jan 2026 - Present • Upwork Freelance</p>
-                <ul>
-                  <li>Built and stabilized Moodle environment setup and course architecture.</li>
-                  <li>Configured roles, cron, enrollment, backup, and email workflows.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>Moodle Developer • The Yesfinity</h3>
-                <p class="meta">Jan 2026 • Upwork Freelance</p>
-                <ul>
-                  <li>Deployed Moodle on AWS and configured Linux-based hosting stack.</li>
-                  <li>Documented setup and hardening process for maintainability.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>WordPress Developer • Himbing Nation / Efficasent Oil Event</h3>
-                <p class="meta">Jul 2025 - Present • Project-Based</p>
-                <ul>
-                  <li>Delivered event website using WordPress + Elementor.</li>
-                  <li>Handled deployment readiness: DNS, SSL, redirects, and caching.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>WordPress Developer • Experts Direct</h3>
-                <p class="meta">Apr 2024 - Present • Contract/Freelance</p>
-                <ul>
-                  <li>Built responsive pages and reusable shortcodes/CPT components.</li>
-                  <li>Improved forms reliability and reduced maintenance overhead.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>Moodle Developer • Practice Tests Academy</h3>
-                <p class="meta">Apr 2024 - Present • Freelance</p>
-                <ul>
-                  <li>Extended plugins and question types to support custom workflows.</li>
-                  <li>Supported upgrades, migrations, and environment tuning.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>Junior Full Stack Developer • Tribute Technology</h3>
-                <p class="meta">Dec 2023 - Jun 2024 • Full-Time</p>
-                <ul>
-                  <li>Built and modified reports using PHP, MySQL, and JavaScript.</li>
-                  <li>Reproduced production issues quickly for targeted fixes.</li>
-                </ul>
-              </article>
-            </article>
-            <article class="experience-item timeline">
-              <article>
-                <h3>Solutions Developer • Capytech</h3>
-                <p class="meta">Feb 2022 - Nov 2023 • Full-Time</p>
-                <ul>
-                  <li>Delivered Moodle deployments, customizations, and WordPress pages.</li>
-                  <li>Contributed documentation handoff and junior mentoring.</li>
-                </ul>
-              </article>
-            </article>
-          </div>
-        </article>
-      </section>
-
-      <section id="projects">
-        <article class="card">
-          <h2>Selected Projects</h2>
-          <p style="margin-bottom: 0.95rem">Real solutions focused on reliability, maintainability, and business usability.</p>
-
-          <div class="project-filters" role="group" aria-label="Project filters">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="frontend">WordPress</button>
-            <button class="filter-btn" data-filter="backend">Moodle</button>
-            <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-          </div>
-
-          <div class="projects-grid">
-            <article class="card project" data-type="backend">
-              <span class="badge">Moodle / Plugin</span>
+      <section id="projects" class="chapter chapter--soft">
+        <div class="chapter-inner">
+          <span class="kicker">Chapter 04 · Selected Work</span>
+          <h2>Project snapshots</h2>
+          <div class="project-grid">
+            <article class="project">
+              <small>Moodle / Plugin</small>
               <h3>Custom Moodle Plugin Work</h3>
-              <p>Extended plugin behavior and question types for specialized workflows, including admin UX improvements.</p>
-              <a href="#">Case study placeholder →</a>
+              <p>Extended plugin behavior and question types for specialized learning workflows with improved admin usability.</p>
             </article>
-            <article class="card project" data-type="backend">
-              <span class="badge">Moodle / Analytics</span>
+            <article class="project">
+              <small>Moodle / Analytics</small>
               <h3>Moodle Charting System</h3>
-              <p>Built Chart.js dashboards inside Moodle to provide near-real-time visibility for educators and admins.</p>
-              <a href="#">Case study placeholder →</a>
+              <p>Built Chart.js dashboards inside Moodle to give educators and admins near-real-time visibility.</p>
             </article>
-            <article class="card project" data-type="fullstack">
-              <span class="badge">LAMP / Thesis</span>
+            <article class="project">
+              <small>LAMP / Full Stack</small>
               <h3>Work Immersion Management System</h3>
-              <p>Digitized approval and reporting workflows to simplify student immersion management for stakeholders.</p>
-              <a href="#">Case study placeholder →</a>
+              <p>Digitized approval and reporting workflows to simplify student immersion management.</p>
             </article>
-            <article class="card project" data-type="frontend">
-              <span class="badge">WordPress / Elementor</span>
+            <article class="project">
+              <small>WordPress / Elementor</small>
               <h3>Efficasent Oil Event Website</h3>
-              <p>Delivered a polished event site with Cloudways-ready deployment checks across DNS, SSL, redirects, and cache.</p>
-              <a href="#">Case study placeholder →</a>
+              <p>Delivered a polished event site with launch-ready DNS, SSL, redirect, and caching setup.</p>
             </article>
           </div>
-        </article>
+        </div>
       </section>
 
-      <section id="certificates">
-        <article class="card">
-          <h2>Certificates</h2>
-          <div class="timeline">
-            <article>
-              <h3>No public certificates listed yet</h3>
-              <p class="meta">Add your certificates anytime to strengthen credibility and social proof.</p>
-            </article>
-          </div>
-        </article>
+      <section id="contact" class="chapter">
+        <div class="chapter-inner">
+          <span class="kicker">Chapter 05 · Contact</span>
+          <h2>Let's build something reliable.</h2>
+          <p>Email: <a href="mailto:abella.ivanl8@gmail.com" style="color: #c4fbe8">abella.ivanl8@gmail.com</a></p>
+          <p>Phone: <a href="tel:+639171355629" style="color: #c4fbe8">+63 917 135 5629</a></p>
+          <p>Location: Zamboanga City, Philippines</p>
+        </div>
       </section>
     </main>
 
     <footer>
-      <div class="container footer-wrap">
-        <small>
-          © <span id="year"></span> John Ivan Abella • Zamboanga City 7000, Philippines •
-          <a href="mailto:abella.ivanl8@gmail.com" style="color: inherit">abella.ivanl8@gmail.com</a>
-        </small>
-
-        <div class="socials" aria-label="Social media links">
-          <a class="social" href="#" aria-label="LinkedIn">in</a>
-          <a class="social" href="#" aria-label="GitHub">GH</a>
-          <a class="social" href="#" aria-label="Facebook">f</a>
-          <a class="social" href="#" aria-label="Twitter / X">𝕏</a>
-        </div>
-      </div>
+      © <span id="year"></span> John Ivan Abella · Full Stack Developer
     </footer>
 
     <script>
@@ -622,7 +488,7 @@
         let current = sections[0]?.id;
 
         sections.forEach((section) => {
-          if (section && window.scrollY >= section.offsetTop - 140) {
+          if (section && window.scrollY >= section.offsetTop - 180) {
             current = section.id;
           }
         });
@@ -634,23 +500,6 @@
 
       document.addEventListener('scroll', setActiveLink);
       setActiveLink();
-
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      const projects = document.querySelectorAll('.project');
-
-      filterButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          filterButtons.forEach((btn) => btn.classList.remove('active'));
-          button.classList.add('active');
-
-          const filter = button.dataset.filter;
-          projects.forEach((project) => {
-            const matches = filter === 'all' || project.dataset.type === filter;
-            project.style.display = matches ? 'block' : 'none';
-          });
-        });
-      });
-
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
   </body>
