@@ -10,13 +10,16 @@
     />
     <style>
       :root {
-        --bg: #0b0d10;
-        --card: #11151b;
-        --text: #e8ecf1;
-        --muted: #9ca8b7;
-        --accent: #68d391;
-        --border: #202834;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        --bg: #070b12;
+        --bg-soft: #0d1420;
+        --card: rgba(15, 21, 32, 0.86);
+        --text: #eaf2ff;
+        --muted: #9fb0c8;
+        --accent: #64f4b2;
+        --accent-2: #74a7ff;
+        --accent-3: #f6c265;
+        --border: rgba(157, 186, 255, 0.22);
+        --shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
       }
 
       * {
@@ -30,36 +33,37 @@
       body {
         margin: 0;
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        background: linear-gradient(180deg, #0b0d10 0%, #0e1218 100%);
         color: var(--text);
-        line-height: 1.6;
+        background: radial-gradient(circle at top right, #11243f 0%, var(--bg) 45%),
+          linear-gradient(180deg, var(--bg) 0%, #04070d 100%);
+        line-height: 1.65;
       }
 
       .container {
-        width: min(1040px, 92%);
+        width: min(1120px, 92%);
         margin: 0 auto;
       }
 
       header {
         position: sticky;
         top: 0;
-        z-index: 100;
-        backdrop-filter: blur(8px);
-        background: rgba(11, 13, 16, 0.8);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 50;
+        backdrop-filter: blur(10px);
+        background: rgba(7, 11, 18, 0.82);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       }
 
       .nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0.8rem 0;
-        gap: 1rem;
+        padding: 0.9rem 0;
+        gap: 0.9rem;
       }
 
       .brand {
         font-weight: 700;
-        letter-spacing: 0.4px;
+        letter-spacing: 0.6px;
       }
 
       .brand span {
@@ -75,7 +79,7 @@
       .menu a {
         color: var(--muted);
         text-decoration: none;
-        padding: 0.4rem 0.65rem;
+        padding: 0.4rem 0.7rem;
         border-radius: 999px;
         border: 1px solid transparent;
         transition: all 0.2s ease;
@@ -86,26 +90,27 @@
       .menu a.active {
         color: var(--text);
         border-color: var(--border);
-        background: rgba(255, 255, 255, 0.04);
+        background: rgba(255, 255, 255, 0.06);
       }
 
       section {
-        padding: 4.2rem 0 1.2rem;
+        padding: 4.5rem 0 1.4rem;
       }
 
       h1,
       h2,
       h3 {
-        margin: 0 0 0.8rem;
-        line-height: 1.25;
+        margin: 0 0 0.85rem;
+        line-height: 1.2;
       }
 
       h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        letter-spacing: -0.02em;
       }
 
       h2 {
-        font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+        font-size: clamp(1.45rem, 3vw, 2rem);
       }
 
       p {
@@ -113,24 +118,56 @@
         color: var(--muted);
       }
 
+      .section-kicker {
+        display: inline-block;
+        font-size: 0.74rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        border: 1px solid rgba(100, 244, 178, 0.4);
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        margin-bottom: 0.8rem;
+      }
+
       .hero {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 1.2rem;
-        align-items: stretch;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.15rem;
       }
 
       .card {
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 1rem;
+        border-radius: 18px;
+        padding: 1.25rem;
         box-shadow: var(--shadow);
       }
 
-      .hero .lead {
-        margin: 0.8rem 0 1.1rem;
-        max-width: 60ch;
+      .hero-panel {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-panel::after {
+        content: '';
+        position: absolute;
+        inset: auto -90px -90px auto;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(116, 167, 255, 0.36), rgba(116, 167, 255, 0));
+      }
+
+      .lead {
+        max-width: 62ch;
+        margin-bottom: 1.2rem;
+      }
+
+      .highlight-line {
+        color: #d9e7ff;
+        margin-bottom: 1.2rem;
+        font-size: 1.02rem;
       }
 
       .cta {
@@ -142,81 +179,131 @@
       .btn {
         border: 1px solid var(--border);
         color: var(--text);
-        background: transparent;
-        border-radius: 10px;
-        padding: 0.55rem 0.9rem;
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 12px;
+        padding: 0.6rem 0.95rem;
         text-decoration: none;
-        transition: transform 0.2s ease, background 0.2s ease;
+        transition: transform 0.18s ease, background 0.2s ease, border-color 0.2s ease;
       }
 
       .btn.primary {
-        background: var(--accent);
-        color: #06240f;
+        background: linear-gradient(120deg, var(--accent), #9ef0cc);
+        color: #032212;
         border-color: transparent;
-        font-weight: 600;
+        font-weight: 700;
       }
 
       .btn:hover {
-        transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.06);
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .btn.primary:hover {
-        background: #7be4a4;
+        background: linear-gradient(120deg, #7bf6be, #b9ffe0);
       }
 
       .stats {
         display: grid;
-        gap: 0.65rem;
+        gap: 0.8rem;
       }
 
       .stat {
-        border: 1px solid var(--border);
-        border-radius: 10px;
-        padding: 0.8rem;
-        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 0.95rem;
+        background: rgba(255, 255, 255, 0.03);
       }
 
       .stat strong {
         display: block;
-        font-size: 1.35rem;
+        font-size: 1.5rem;
       }
 
-      .chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.45rem;
+      .skill-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+        gap: 0.75rem;
       }
 
-      .chip {
-        padding: 0.4rem 0.68rem;
-        border-radius: 999px;
-        border: 1px solid var(--border);
+      .skill-item {
+        border: 1px solid rgba(255, 255, 255, 0.09);
         background: rgba(255, 255, 255, 0.02);
-        font-size: 0.88rem;
-        color: #d4dde8;
+        border-radius: 14px;
+        padding: 0.85rem;
+        text-align: center;
+        transition: transform 0.2s ease, border-color 0.2s ease;
+      }
+
+      .skill-item:hover {
+        transform: translateY(-3px);
+        border-color: rgba(100, 244, 178, 0.45);
+      }
+
+      .skill-icon {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 0.5rem;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-size: 1.35rem;
+        color: #08111f;
+        font-weight: 700;
+        background: linear-gradient(145deg, #98b8ff, #c3f4ff);
+      }
+
+      .skill-item p {
+        color: #d2dff1;
+        font-size: 0.9rem;
       }
 
       .timeline {
         display: grid;
-        gap: 0.8rem;
+        gap: 1rem;
       }
 
       .timeline article {
-        border-left: 2px solid var(--border);
-        padding-left: 0.95rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .timeline article h3 {
+        margin-bottom: 0.5rem;
       }
 
       .meta {
-        font-size: 0.88rem;
-        color: #9ab0c6;
+        display: inline-block;
+        font-size: 0.84rem;
+        color: #bdd0e8;
+        border: 1px solid rgba(189, 208, 232, 0.35);
+        border-radius: 999px;
+        padding: 0.15rem 0.55rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .experience-grid,
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 0.9rem;
+      }
+
+      .experience-item,
+      .project {
+        grid-column: span 6;
+      }
+
+      .experience-item {
+        border-left: 3px solid var(--accent-2);
       }
 
       .project-filters {
         display: flex;
         gap: 0.45rem;
         flex-wrap: wrap;
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.85rem;
       }
 
       .filter-btn {
@@ -224,54 +311,92 @@
         border: 1px solid var(--border);
         color: var(--muted);
         border-radius: 999px;
-        padding: 0.4rem 0.7rem;
+        padding: 0.4rem 0.72rem;
         cursor: pointer;
       }
 
       .filter-btn.active,
       .filter-btn:hover {
         color: var(--text);
-        background: rgba(255, 255, 255, 0.04);
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 0.8rem;
+        background: rgba(255, 255, 255, 0.08);
       }
 
       .project {
-        grid-column: span 6;
+        background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
       }
 
       .project h3 {
-        margin-bottom: 0.45rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project .tag {
+        display: inline-block;
+        margin-top: 0.65rem;
+        font-size: 0.76rem;
+        border-radius: 999px;
+        padding: 0.18rem 0.55rem;
+        background: rgba(116, 167, 255, 0.2);
+        color: #d9e6ff;
       }
 
       footer {
-        padding: 2.7rem 0;
+        padding: 2.8rem 0;
         color: var(--muted);
         text-align: center;
       }
 
-      @media (max-width: 840px) {
+      .socials {
+        margin: 1rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      .socials a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        color: #e5efff;
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.03);
+        transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .socials a:hover {
+        transform: translateY(-3px);
+        border-color: rgba(100, 244, 178, 0.6);
+        background: rgba(100, 244, 178, 0.12);
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .experience-item,
+        .project {
+          grid-template-columns: 1fr;
+        }
+
         .hero {
           grid-template-columns: 1fr;
         }
 
+        .experience-item,
         .project {
           grid-column: span 12;
         }
       }
 
       @media (max-width: 560px) {
-        .menu {
-          justify-content: center;
-        }
-
         .nav {
           flex-direction: column;
           align-items: flex-start;
+        }
+
+        .menu {
+          justify-content: flex-start;
         }
       }
     </style>
@@ -294,15 +419,19 @@
     <main class="container">
       <section id="overview">
         <div class="hero">
-          <article class="card">
-            <h1>Hi, I'm John Ivan Abella</h1>
+          <article class="card hero-panel">
+            <span class="section-kicker">Software Engineer</span>
+            <h1>I build fast, clean, and organized web solutions.</h1>
             <p class="lead">
-              Backend-leaning full-stack software engineer with 4+ years of experience delivering Moodle and
-              WordPress solutions, production debugging, and deployment support across Linux-hosted environments.
+              Backend-leaning full-stack software engineer with 4+ years of experience shipping Moodle and WordPress
+              products. I help teams move from “it works” to “it scales and feels premium.”
+            </p>
+            <p class="highlight-line">
+              You get reliability, thoughtful implementation, and production-ready code quality.
             </p>
             <div class="cta">
-              <a class="btn primary" href="#projects">View Projects</a>
-              <a class="btn" href="mailto:abella.ivanl8@gmail.com">Email Me</a>
+              <a class="btn primary" href="#projects">Explore My Work</a>
+              <a class="btn" href="mailto:abella.ivanl8@gmail.com">Let's Talk</a>
               <a class="btn" href="tel:+639171355629">Call Me</a>
             </div>
           </article>
@@ -317,8 +446,8 @@
               <p>Client projects supported at Capytech (unverified)</p>
             </div>
             <div class="stat">
-              <strong>Remote</strong>
-              <p>Open to full-time or long-term contract work</p>
+              <strong>Quality-first</strong>
+              <p>Readable architecture, maintainable delivery, and careful testing</p>
             </div>
           </aside>
         </div>
@@ -326,24 +455,26 @@
 
       <section id="skills">
         <article class="card">
-          <h2>Skills</h2>
-          <div class="chips" aria-label="Skill list">
-            <span class="chip">PHP / LAMP</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">Moodle Plugin Development</span>
-            <span class="chip">WordPress / Elementor</span>
-            <span class="chip">HTML / CSS</span>
-            <span class="chip">AWS / Cloudways / WP Engine</span>
-            <span class="chip">Linux / SSH / Deployments</span>
-            <span class="chip">DNS / SSL / Redirects / Backups</span>
-            <span class="chip">Debugging & Production Support</span>
+          <span class="section-kicker">Toolbox</span>
+          <h2>Skills & Technologies</h2>
+          <div class="skill-grid" aria-label="Skill list with icons">
+            <div class="skill-item"><div class="skill-icon">🐘</div><p>PHP / LAMP</p></div>
+            <div class="skill-item"><div class="skill-icon">🟨</div><p>JavaScript</p></div>
+            <div class="skill-item"><div class="skill-icon">🛢️</div><p>MySQL</p></div>
+            <div class="skill-item"><div class="skill-icon">🎓</div><p>Moodle Development</p></div>
+            <div class="skill-item"><div class="skill-icon">🧩</div><p>WordPress / Elementor</p></div>
+            <div class="skill-item"><div class="skill-icon">🎨</div><p>HTML / CSS</p></div>
+            <div class="skill-item"><div class="skill-icon">☁️</div><p>AWS / Cloudways</p></div>
+            <div class="skill-item"><div class="skill-icon">🐧</div><p>Linux / SSH</p></div>
+            <div class="skill-item"><div class="skill-icon">🔒</div><p>DNS / SSL / Backups</p></div>
+            <div class="skill-item"><div class="skill-icon">🛠️</div><p>Debugging Support</p></div>
           </div>
         </article>
       </section>
 
       <section id="education">
         <article class="card">
+          <span class="section-kicker">Foundation</span>
           <h2>Education</h2>
           <div class="timeline">
             <article>
@@ -360,9 +491,10 @@
 
       <section id="experience">
         <article class="card">
+          <span class="section-kicker">Track Record</span>
           <h2>Work Experience</h2>
-          <div class="timeline">
-            <article>
+          <div class="experience-grid">
+            <article class="timeline experience-item">
               <h3>Moodle Developer • ScienceXplorers</h3>
               <p class="meta">Jan 2026 - Present • Upwork Freelance</p>
               <p>
@@ -370,7 +502,7 @@
                 email, and enrollment configuration to support reliable course publishing.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>Moodle Developer • The Yesfinity</h3>
               <p class="meta">Jan 2026 • Upwork Freelance</p>
               <p>
@@ -378,7 +510,7 @@
                 documented the setup for maintainability.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>WordPress Developer • Himbing Nation / Efficasent Oil Event</h3>
               <p class="meta">Jul 2025 - Present • Project-Based</p>
               <p>
@@ -386,7 +518,7 @@
                 including DNS checks, redirects, SSL, and caching support.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>WordPress Developer • Experts Direct</h3>
               <p class="meta">Apr 2024 - Present • Contract/Freelance</p>
               <p>
@@ -394,7 +526,7 @@
                 components, and improved form reliability and maintenance workflows.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>Moodle Developer • Practice Tests Academy</h3>
               <p class="meta">Apr 2024 - Present • Freelance</p>
               <p>
@@ -402,7 +534,7 @@
                 upgrades, migrations, and environment tuning for platform stability.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>Junior Full Stack Developer • Tribute Technology</h3>
               <p class="meta">Dec 2023 - Jun 2024 • Full-Time</p>
               <p>
@@ -410,7 +542,7 @@
                 production issues quickly to deliver targeted fixes.
               </p>
             </article>
-            <article>
+            <article class="timeline experience-item">
               <h3>Solutions Developer • Capytech</h3>
               <p class="meta">Feb 2022 - Nov 2023 • Full-Time</p>
               <p>
@@ -424,6 +556,7 @@
 
       <section id="projects">
         <article class="card">
+          <span class="section-kicker">Proof of Work</span>
           <h2>Projects</h2>
           <div class="project-filters" role="group" aria-label="Project filters">
             <button class="filter-btn active" data-filter="all">All</button>
@@ -439,6 +572,7 @@
                 Extended plugin behavior and custom question types for Practice Tests Academy, including spreadsheet-like
                 interaction requirements and admin workflow refinement.
               </p>
+              <span class="tag">Moodle / Backend</span>
             </article>
             <article class="card project" data-type="backend">
               <h3>Moodle Charting System</h3>
@@ -446,12 +580,14 @@
                 Built Chart.js dashboards inside Moodle to surface near-real-time course analytics and improve
                 visibility for admins and educators.
               </p>
+              <span class="tag">Analytics</span>
             </article>
             <article class="card project" data-type="fullstack">
               <h3>Work Immersion Management System</h3>
               <p>
                 Thesis project built on a LAMP stack to digitize work immersion approvals, tracking, and reporting.
               </p>
+              <span class="tag">LAMP / Full Stack</span>
             </article>
             <article class="card project" data-type="frontend">
               <h3>Efficasent Oil Event Website</h3>
@@ -459,6 +595,7 @@
                 Project-based WordPress and Elementor launch delivered on Cloudways with deployment checks for SSL,
                 DNS, redirects, and caching.
               </p>
+              <span class="tag">WordPress / Elementor</span>
             </article>
           </div>
         </article>
@@ -466,6 +603,7 @@
 
       <section id="certificates">
         <article class="card">
+          <span class="section-kicker">Growth</span>
           <h2>Certificates</h2>
           <div class="timeline">
             <article>
@@ -479,6 +617,13 @@
 
     <footer>
       <div class="container">
+        <div class="socials" aria-label="Social links">
+          <a href="#" aria-label="GitHub">🐙</a>
+          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="#" aria-label="Facebook">📘</a>
+          <a href="#" aria-label="X (Twitter)">✖️</a>
+          <a href="#" aria-label="YouTube">▶️</a>
+        </div>
         <small>
           © <span id="year"></span> John Ivan Abella • Zamboanga City 7000, Philippines •
           <a href="mailto:abella.ivanl8@gmail.com" style="color: inherit">abella.ivanl8@gmail.com</a>
