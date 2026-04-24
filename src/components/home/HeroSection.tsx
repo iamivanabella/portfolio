@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowRight, Mail } from "lucide-react";
 
 import { HeroComposite } from "./HeroComposite";
@@ -57,11 +58,12 @@ export function HeroSection({ techIcons }: HeroSectionProps) {
                 className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm"
                 title={item.name}
               >
-                <img
+                <Image
                   src={item.src}
                   alt={item.name}
+                  width={32}
+                  height={32}
                   className={`${item.className} object-contain`}
-                  loading="lazy"
                 />
               </div>
             ))}

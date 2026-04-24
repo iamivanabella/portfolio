@@ -97,7 +97,7 @@ export function HeroComposite() {
           <div className="pl-3">
             <span className="text-fuchsia-300">const</span> data = {"{"}
             <span className="text-emerald-300">name</span>:{" "}
-            <span className="text-amber-300">"Ivan"</span>
+            <span className="text-amber-300">&quot;Ivan&quot;</span>
             {"}"};
           </div>
           <div className="pl-3">
