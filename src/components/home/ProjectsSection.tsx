@@ -41,8 +41,13 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
               <h3 className="text-[30px] font-black tracking-[-0.04em] text-ink">{project.title}</h3>
               <p className="mt-2 text-[14px] text-muted">{project.stack}</p>
               <p className="mt-3 text-[15px] leading-7 text-text">{project.text}</p>
-              <a href="#contact" className="mt-4 inline-flex items-center gap-2 text-[14px] font-bold text-blue">
-                Ask about this project <ArrowRight size={14} />
+              <a
+                href={project.url ?? "#contact"}
+                target={project.url ? "_blank" : undefined}
+                rel={project.url ? "noreferrer" : undefined}
+                className="mt-4 inline-flex items-center gap-2 text-[14px] font-bold text-blue"
+              >
+                {project.url ? "Visit website" : "Ask about this project"} <ArrowRight size={14} />
               </a>
             </div>
           </article>

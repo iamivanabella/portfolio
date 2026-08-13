@@ -63,6 +63,7 @@ export type Project = {
   stack: string;
   text: string;
   variant: string;
+  url?: string;
 };
 
 export const projects: Project[] = [
@@ -71,6 +72,7 @@ export const projects: Project[] = [
     stack: "WordPress, Elementor, Photoshop, Cloudways",
     text: "Built a responsive WordPress website from a client-provided Photoshop design and deployed it on Cloudways.",
     variant: "board",
+    url: "https://himbingnation.ph",
   },
   {
     title: "Custom Moodle Quiz Workflow",
@@ -224,7 +226,7 @@ export type ContactItem = {
 };
 
 export const contactItems: ContactItem[] = [
-  { icon: Mail, label: "abella.ivanl8@gmail.com" },
+  { icon: Mail, label: "abella.webdev@gmail.com" },
   { icon: Phone, label: "+63 917 135 5629" },
   { icon: MapPin, label: "Zamboanga City 7000, Philippines" },
   { icon: Globe, label: "Remote, full-time or long-term contract" },
