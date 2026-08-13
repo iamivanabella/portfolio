@@ -67,21 +67,33 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Custom Moodle Plugin Work",
-    stack: "Moodle, PHP, MySQL, Plugin Customization, Custom Question Types",
-    text: "Extended plugin behavior and custom question types, refined admin workflows, and supported ongoing LMS stability and upgrades for Practice Tests Academy.",
+    title: "Himbing Nation Website",
+    stack: "WordPress, Elementor, Photoshop, Cloudways",
+    text: "Built a responsive WordPress website from a client-provided Photoshop design and deployed it on Cloudways.",
     variant: "board",
   },
   {
-    title: "Moodle Charting System",
-    stack: "Moodle, PHP, Chart.js, JavaScript, Analytics Dashboards",
-    text: "Built chart-driven Moodle dashboards to surface near-real-time course analytics and make LMS activity easier to understand for admins and educators.",
+    title: "Custom Moodle Quiz Workflow",
+    stack: "Moodle, PHP, MySQL, Plugin Development",
+    text: "Modernized a legacy custom quiz-generation plugin to reduce the overhead of creating and deleting temporary quiz activities.",
     variant: "stay",
+  },
+  {
+    title: "Spreadsheet-Style Moodle Question Type",
+    stack: "Moodle, PHP, Custom Question Types",
+    text: "Built custom question functionality that gives learners an Excel-like sheet format for entering answers.",
+    variant: "dash",
+  },
+  {
+    title: "Custom Moodle Plugin Suite",
+    stack: "Moodle, PHP, MySQL, Plugin Development",
+    text: "Develop and maintain custom referral, tutor signup and profile completion, and private messaging plugins for learning platforms.",
+    variant: "board",
   },
   {
     title: "Work Immersion Management System",
     stack: "PHP/LAMP, MySQL, JavaScript, HTML/CSS",
-    text: "Designed and developed a thesis system to digitize work immersion approvals, tracking, and reporting.",
+    text: "Developed a thesis system that digitized work immersion approvals, tracking, reporting, and organization assignments based on student preferences.",
     variant: "dash",
   },
 ];
