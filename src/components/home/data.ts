@@ -95,23 +95,42 @@ export type TimelineItem = {
 
 export const timeline: TimelineItem[] = [
   {
-    years: "Apr 2024 - Present",
-    title: "Moodle Developer",
-    company: "Practice Tests Academy",
+    years: "Mar 2026 - Present",
+    title: "Backend Moodle Developer",
+    company: "Latingles",
     bullets: [
-      "Extended Moodle plugins and custom question-type behavior for evolving LMS requirements.",
-      "Diagnosed recurring workflow and plugin issues across the live learning platform.",
-      "Supported migrations, upgrades, and environment tuning to keep the LMS stable.",
+      "Own and maintain custom Moodle plugins for referral tracking, tutor signup and profile completion, and private student-tutor messaging.",
+      "Develop PHP and MySQL backend workflows, integrations, plugin upgrades, and production fixes.",
+      "Collaborate with the development team through GitHub.",
     ],
   },
   {
     years: "Apr 2024 - Present",
-    title: "WordPress Developer",
+    title: "Freelance Moodle Developer",
+    company: "Practice Tests Academy",
+    bullets: [
+      "Develop and maintain custom Moodle plugins and question types for an online practice-testing platform.",
+      "Modernized a legacy custom quiz-generation plugin, reducing the overhead of creating and deleting temporary quiz activities.",
+      "Built spreadsheet-style question functionality and resolved production issues involving quizzes, grading, PDF generation, attachments, performance, and integrations.",
+    ],
+  },
+  {
+    years: "Apr 2024 - Present",
+    title: "Freelance WordPress Developer",
     company: "Experts Direct",
     bullets: [
-      "Delivered responsive WordPress and Elementor pages from design handoffs.",
-      "Built reusable custom post types, taxonomies, and shortcode-driven components.",
-      "Improved form reliability while handling performance and maintenance work.",
+      "Build responsive WordPress and Elementor pages from Figma designs.",
+      "Work with ACF, CPTs, dynamic content, forms, animations, and integrations.",
+      "Handle staging-to-production deployments, performance improvements, and cross-browser fixes.",
+    ],
+  },
+  {
+    years: "Dec 2023 - Jun 2024",
+    title: "Junior Full-Stack Developer",
+    company: "Tribute Technology",
+    bullets: [
+      "Maintained PHP backend functionality for a legacy business system.",
+      "Modified report-generation features and produced PDF reports using PHP.",
     ],
   },
   {
@@ -119,39 +138,9 @@ export const timeline: TimelineItem[] = [
     title: "Solutions Developer",
     company: "Capytech",
     bullets: [
-      "Delivered client-facing PHP, Moodle, and WordPress solutions across multiple projects.",
-      "Implemented Moodle deployments and customizations plus responsive WordPress pages.",
-      "Supported handoff documentation and mentored a junior teammate.",
-    ],
-  },
-  {
-    years: "Dec 2023 - Jun 2024",
-    title: "Junior Full Stack Developer",
-    company: "Tribute Technology",
-    bullets: [
-      "Built and modified PHP, MySQL, and JavaScript functionality for report-generation work.",
-      "Reproduced production issues quickly to ship targeted fixes.",
-      "Worked under close supervision while contributing to backend feature updates.",
-    ],
-  },
-  {
-    years: "Jan 2026 - Present",
-    title: "Moodle Developer",
-    company: "ScienceXplorers",
-    bullets: [
-      "Built the initial Moodle environment including course structure, roles, and permissions.",
-      "Stabilized cron, backups, email, and enrollment behavior for reliable publishing.",
-      "Handled independent setup and operations work aligned to course rollout needs.",
-    ],
-  },
-  {
-    years: "Jan 2026",
-    title: "Moodle Developer",
-    company: "The Yesfinity",
-    bullets: [
-      "Deployed Moodle on AWS and configured the LMS environment from scratch.",
-      "Applied baseline Linux hardening and server setup for safer operations.",
-      "Produced handoff documentation to support future maintenance and enhancement work.",
+      "Helped deploy Moodle platforms for approximately 10 clients on AWS EC2 instances running Linux.",
+      "Customized Moodle themes, content, and backend code, including Arabic RTL interfaces.",
+      "Built Elementor and JavaScript landing pages and maintained website performance and SEO.",
     ],
   },
 ];
