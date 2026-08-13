@@ -10,19 +10,18 @@ export function ExperienceSection({ timeline }: ExperienceSectionProps) {
     <section id="experience" className="pb-12">
       <SectionEyebrow>Experience</SectionEyebrow>
       <h2 className="text-[46px] font-black tracking-[-0.05em] text-ink">Work Experience</h2>
-      <div className="mt-8 grid gap-6 lg:grid-cols-[150px_1fr]">
-        <div className="relative hidden lg:block">
-          <div className="absolute left-[11px] top-3 h-[calc(100%-24px)] w-px bg-[#b8cbff]" />
-          {timeline.map((item, index) => (
-            <div key={`${item.years}-${index}`} className="relative mb-24 pl-9 text-[14px] font-bold text-ink">
-              <span className="absolute left-0 top-1 h-[22px] w-[22px] rounded-full border-[5px] border-white bg-blue shadow-sm" />
-              {item.years}
-            </div>
-          ))}
-        </div>
+      <div className="relative mt-8">
+        <div className="absolute bottom-3 left-[11px] top-3 hidden w-px bg-[#b8cbff] lg:block" />
         <div className="space-y-10">
           {timeline.map((item, index) => (
-            <div key={`${item.company}-${item.years}-${index}`} className="grid gap-4 lg:grid-cols-[280px_1fr]">
+            <div
+              key={`${item.company}-${item.years}-${index}`}
+              className="relative grid gap-4 lg:grid-cols-[150px_280px_1fr] lg:gap-6"
+            >
+              <div className="relative hidden pl-9 text-[14px] font-bold text-ink lg:block">
+                <span className="absolute left-0 top-1 h-[22px] w-[22px] rounded-full border-[5px] border-white bg-blue shadow-sm" />
+                {item.years}
+              </div>
               <div>
                 <p className="text-[15px] font-bold text-muted lg:hidden">{item.years}</p>
                 <h3 className="mt-1 text-[30px] font-black tracking-[-0.04em] text-ink">{item.title}</h3>
