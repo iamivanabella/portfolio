@@ -14,7 +14,7 @@ export function SkillsSection({ groups }: SkillsSectionProps) {
     <section id="skills" className="pb-12">
       <SectionEyebrow>Skills &amp; Tools</SectionEyebrow>
       <h2 className="text-[46px] font-black tracking-[-0.05em] text-ink">My Tech Stack</h2>
-      <div className="mt-7 grid gap-6 xl:grid-cols-4">
+      <div className="mt-7 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {groups.map((group) => (
           <div key={group.title}>
             <h3 className="mb-4 text-[18px] font-extrabold text-ink">{group.title}</h3>

@@ -182,19 +182,27 @@ export const certs: CertItem[] = [
 export const stackGroups = [
   {
     title: "Frontend",
-    items: ["JavaScript", "HTML5", "CSS3", "Responsive UI", "Elementor", "WordPress"],
+    items: ["HTML", "CSS", "JavaScript", "Bootstrap", "jQuery", "Responsive Web Development"],
   },
   {
     title: "Backend",
-    items: ["PHP", "MySQL", "Moodle", "Plugin Development", "Custom Question Types", "Shortcodes"],
+    items: ["PHP", "MySQL", "REST API Integration", "PDF Generation"],
   },
   {
-    title: "Database & Cloud",
-    items: ["MySQL", "AWS", "Cloudways", "WP Engine", "Linux", "Backups"],
+    title: "Moodle",
+    items: ["Moodle Plugin Development", "Moodle APIs", "Custom Question Types", "LMS Development", "Moodle Upgrades"],
   },
   {
-    title: "Tools & Others",
-    items: ["DNS", "SSL", "Redirects", "Cron", "CLI/SSH", "Technical Handoffs"],
+    title: "WordPress",
+    items: ["WordPress", "Elementor", "ACF", "CPT", "Dynamic Content"],
+  },
+  {
+    title: "Cloud & Deployment",
+    items: ["AWS EC2", "Linux", "Cloudways", "WP Engine", "Staging-to-Production"],
+  },
+  {
+    title: "Tools",
+    items: ["Git", "GitHub", "Figma", "Photoshop"],
   },
 ];
 
