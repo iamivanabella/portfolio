@@ -11,7 +11,7 @@ export function ProcessSection({ items }: ProcessSectionProps) {
       <SectionEyebrow>My Approach</SectionEyebrow>
       <h2 className="text-[44px] font-black tracking-[-0.05em] text-ink">How I Work</h2>
       <p className="mx-auto mt-2 max-w-[500px] text-[15px] text-muted">
-        A clear process. Thoughtful execution. Results that matter.
+        Clear communication. Practical development. Reliable delivery.
       </p>
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {items.map(({ number, title, text, icon: Icon }) => (

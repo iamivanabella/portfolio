@@ -35,25 +35,25 @@ export const processItems: ProcessItem[] = [
   {
     number: "01",
     title: "Discover",
-    text: "I dive into platform requirements, user workflows, and operational constraints before building.",
+    text: "Understand your goals, users, existing setup, and technical constraints.",
     icon: Search,
   },
   {
     number: "02",
     title: "Plan",
-    text: "I map the right implementation path across Moodle, WordPress, PHP, hosting, and deployment needs.",
+    text: "Break the work into clear steps, choose the right approach, and confirm priorities.",
     icon: ClipboardCheck,
   },
   {
     number: "03",
     title: "Build",
-    text: "I build stable production solutions across Moodle, WordPress, PHP, MySQL, and responsive frontend work.",
+    text: "Develop and test the PHP, Moodle, or WordPress solution with clean, maintainable code.",
     icon: Code2,
   },
   {
     number: "04",
     title: "Support",
-    text: "I debug live issues, tune environments, and document handoffs so systems stay reliable after launch.",
+    text: "Deploy updates, fix issues, and keep the system reliable after launch.",
     icon: Wrench,
   },
 ];
