@@ -27,11 +27,11 @@ export function HeroSection({ techIcons }: HeroSectionProps) {
           John Ivan Abella
         </h1>
         <p className="mt-3 text-[28px] font-extrabold leading-tight tracking-[-0.03em] text-ink">
-          Software Engineer <span className="text-blue">| Full-Stack Developer</span>
+          Full-Stack Web Developer <span className="block text-blue">| PHP, Moodle, WordPress &amp; MySQL</span>
         </p>
         <p className="mt-6 max-w-[500px] text-[17px] leading-9 text-text sm:text-[18px]">
-          Backend-leaning full-stack developer with 4+ years of experience across PHP, MySQL,
-          Moodle, WordPress, deployments, production debugging, and Linux-hosted platform support.
+          Full-stack web developer with 4+ years of experience building PHP and MySQL applications,
+          custom Moodle plugins, and responsive WordPress websites from design to deployment.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <a
