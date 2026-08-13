@@ -13,10 +13,10 @@ export function AboutSection() {
           <div className="max-w-[760px]">
             <h2 className="text-[34px] font-extrabold tracking-[-0.04em] text-ink">About Me</h2>
             <p className="mt-3 text-[16px] leading-8 text-text">
-              I&apos;m a software engineer focused on practical delivery across Moodle and
-              WordPress ecosystems. My work centers on backend-heavy implementation, plugin
-              customization, deployments, debugging live issues, and keeping production systems
-              stable through upgrades, maintenance, and clear technical handoffs.
+              My work spans the full delivery cycle - from translating Figma and Photoshop designs
+              into Elementor pages to building PHP and MySQL workflows, Moodle plugins, and
+              production fixes. I focus on practical solutions that are maintainable, responsive,
+              and ready for real users.
             </p>
           </div>
         </div>

@@ -30,8 +30,8 @@ export function HeroSection({ techIcons }: HeroSectionProps) {
           Full-Stack Web Developer
         </p>
         <p className="mt-6 max-w-[500px] text-[17px] leading-9 text-text sm:text-[18px]">
-          Full-stack web developer with 4+ years of experience building PHP and MySQL applications,
-          custom Moodle plugins, and responsive WordPress websites from design to deployment.
+          I build custom Moodle plugins, backend PHP features, and responsive WordPress websites
+          for learning platforms and businesses.
         </p>
         <div className="mt-9 flex flex-wrap gap-4">
           <a
